@@ -1,4 +1,4 @@
-// Basic translations for Drive Life prototype
+// Basic translations for Drive Tru prototype
 // In production, use proper i18n library (next-intl, react-i18next)
 
 export const translations = {
@@ -109,14 +109,14 @@ export const translations = {
     
     // Footer
     footer: {
-      about: 'About Drive Life',
+      about: 'About Drive Tru',
       quickLinks: 'Quick Links',
       support: 'Support',
       followUs: 'Follow Us',
       newsletter: 'Subscribe to Newsletter',
       newsletterPlaceholder: 'Enter your email',
       subscribe: 'Subscribe',
-      copyright: '© 2024 Drive Life. All rights reserved.',
+      copyright: '© 2024 Drive Tru. All rights reserved.',
       privacy: 'Privacy Policy',
       terms: 'Terms & Conditions',
     },
@@ -130,7 +130,7 @@ export const translations = {
       featuredVehicles: 'Featured Vehicles',
       browseByType: 'Browse by Body Type',
       browseByBrand: 'Browse by Brand',
-      whyChooseUs: 'Why Choose Drive Life',
+      whyChooseUs: 'Why Choose Drive Tru',
       sellYourCar: 'Sell Your Car',
       getStarted: 'Get Started',
       currentOffers: 'Current Offers',

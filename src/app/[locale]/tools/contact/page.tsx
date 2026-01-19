@@ -1,4 +1,4 @@
-// Contact Page - Drive Life
+// Contact Page - Drive Tru
 'use client'
 
 import { useState } from 'react'
@@ -77,9 +77,9 @@ export default function ContactPage({
               <Phone className="w-5 h-5 text-secondary" />
               <span className="font-medium">+971 4 300 1234</span>
             </a>
-            <a href="mailto:info@drivelife.ae" className="flex items-center gap-2 hover:text-secondary">
+            <a href="mailto:info@drivetru.ae" className="flex items-center gap-2 hover:text-secondary">
               <Mail className="w-5 h-5 text-secondary" />
-              <span className="font-medium">info@drivelife.ae</span>
+              <span className="font-medium">info@drivetru.ae</span>
             </a>
             <a 
               href="https://wa.me/971501234567" 

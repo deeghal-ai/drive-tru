@@ -483,7 +483,7 @@ export default function InsurancePage({
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Drive Life Insurance?</h2>
+            <h2 className="text-3xl font-bold mb-4">Why Choose Drive Tru Insurance?</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               We make car insurance simple, affordable, and hassle-free
             </p>

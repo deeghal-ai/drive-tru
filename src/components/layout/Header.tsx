@@ -94,7 +94,7 @@ export function Header({ locale }: HeaderProps) {
             <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center font-bold text-xl">
               DL
             </div>
-            <span className="font-bold text-xl hidden sm:block">Drive Life</span>
+            <span className="font-bold text-xl hidden sm:block">Drive Tru</span>
           </Link>
           
           {/* Desktop Navigation */}

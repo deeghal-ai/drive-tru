@@ -1,4 +1,4 @@
-# Features Matrix - Drive Life Prototype
+# Features Matrix - Drive Tru Prototype
 
 > Complete feature inventory with implementation status
 > Legend: 🔨 BUILD (functional) | 🎭 MOCK (visual only) | ⏭️ SKIP (document only)
@@ -288,7 +288,7 @@
 
 | Feature | Status | Implementation Notes |
 |---------|--------|---------------------|
-| About Drive Life | 🔨 BUILD | Static content page |
+| About Drive Tru | 🔨 BUILD | Static content page |
 | Vision & Mission | 🔨 BUILD | Sub-section |
 | Offers page | 🔨 BUILD | Promotional banners grid |
 | News & Articles | 🎭 MOCK | Blog listing (3-4 articles) |

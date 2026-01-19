@@ -1,4 +1,4 @@
-# ✅ Deployment Ready - Drive Life Prototype
+# ✅ Deployment Ready - Drive Tru Prototype
 
 > **Status:** READY TO DEPLOY 🚀  
 > **Build:** ✅ Passing  
@@ -18,7 +18,7 @@ git push origin main
 # Then import at vercel.com/new
 ```
 
-**Your live URL:** `https://drivelife-prototype.vercel.app`
+**Your live URL:** `https://drivetru-prototype.vercel.app`
 
 ---
 
@@ -139,9 +139,9 @@ http://localhost:3000/ar
 ### Share with Stakeholders
 
 **Production URLs:**
-- English: `https://drivelife-prototype.vercel.app/en`
-- Arabic: `https://drivelife-prototype.vercel.app/ar`
-- Admin: `https://drivelife-prototype.vercel.app/admin`
+- English: `https://drivetru-prototype.vercel.app/en`
+- Arabic: `https://drivetru-prototype.vercel.app/ar`
+- Admin: `https://drivetru-prototype.vercel.app/admin`
 
 ### Demo Flow
 1. **Home** → Show hero, featured cars
@@ -154,13 +154,13 @@ http://localhost:3000/ar
 ### Email Template
 
 ```
-Subject: Drive Life Prototype - Live Demo
+Subject: Drive Tru Prototype - Live Demo
 
 Hi [Stakeholder],
 
-The Drive Life marketplace prototype is now live:
+The Drive Tru marketplace prototype is now live:
 
-🔗 https://drivelife-prototype.vercel.app
+🔗 https://drivetru-prototype.vercel.app
 
 Languages:
 • English: /en

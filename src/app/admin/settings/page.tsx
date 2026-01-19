@@ -105,7 +105,7 @@ export default function SettingsPage() {
                     <label className="block text-sm font-medium mb-2">Site Name</label>
                     <input 
                       type="text" 
-                      defaultValue="Drive Life"
+                      defaultValue="Drive Tru"
                       className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                   </div>
@@ -113,7 +113,7 @@ export default function SettingsPage() {
                     <label className="block text-sm font-medium mb-2">Site URL</label>
                     <input 
                       type="text" 
-                      defaultValue="https://drivelife.ae"
+                      defaultValue="https://drivetru.ae"
                       className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                   </div>
@@ -121,7 +121,7 @@ export default function SettingsPage() {
                     <label className="block text-sm font-medium mb-2">Contact Email</label>
                     <input 
                       type="email" 
-                      defaultValue="info@drivelife.ae"
+                      defaultValue="info@drivetru.ae"
                       className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                   </div>

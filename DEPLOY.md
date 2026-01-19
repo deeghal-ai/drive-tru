@@ -11,11 +11,11 @@
 npm install -g vercel
 
 # Deploy
-cd drivelife-prototype
+cd drivetru-prototype
 vercel
 
 # Login → Follow prompts → Done!
-# Your URL: https://drivelife-prototype.vercel.app
+# Your URL: https://drivetru-prototype.vercel.app
 ```
 
 **Update deployment:**

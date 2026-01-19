@@ -3,7 +3,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: 'Drive Life - Pre-owned Cars UAE',
+  title: 'Drive Tru - Pre-owned Cars UAE',
   description: 'Find your perfect certified pre-owned car in UAE',
 }
 

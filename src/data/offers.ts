@@ -1,4 +1,4 @@
-// Mock offers/promotions data for Drive Life prototype
+// Mock offers/promotions data for Drive Tru prototype
 
 export interface Offer {
   id: string
@@ -105,7 +105,7 @@ export const offers: Offer[] = [
     terms: [
       'Valid on Citroen vehicles only',
       'Service package covers regular maintenance',
-      'Valid at Drive Life service centers'
+      'Valid at Drive Tru service centers'
     ],
     cta: {
       text: 'View Citroen Cars',

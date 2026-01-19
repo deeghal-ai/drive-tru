@@ -5,7 +5,7 @@ import '@/styles/globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Drive Life - Pre-owned Cars UAE',
+  title: 'Drive Tru - Pre-owned Cars UAE',
   description: 'Find your perfect certified pre-owned car in UAE. Suzuki, Citroen and more.',
 }
 

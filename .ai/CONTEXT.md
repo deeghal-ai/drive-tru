@@ -1,4 +1,4 @@
-# Project Context - Drive Life Prototype
+# Project Context - Drive Tru Prototype
 
 > **Purpose:** Design prototype for stakeholder presentation and RFP estimation
 > **Timeline:** 1 week
@@ -9,7 +9,7 @@
 ## Project Overview
 
 **Client:** Al Rostamani Trading Company (ARTC)
-**Product:** Drive Life - Pre-owned car marketplace
+**Product:** Drive Tru - Pre-owned car marketplace
 **Brands:** Suzuki & Citroen
 **Target URL:** Something like `alrostamani.usedcars.ae`
 **Languages:** English & Arabic (RTL support required)
@@ -29,7 +29,7 @@
 
 ### Pages Completed
 - [x] Home
-- [x] About / About Drive Life
+- [x] About / About Drive Tru
 - [x] Buy - Cars Listing (with filters, sort, compare bar)
 - [x] Buy - Car Detail (gallery, specs, EMI, contact)
 - [x] Buy - Popular Models
@@ -102,7 +102,7 @@
 ## Folder Structure
 
 ```
-drivelife-prototype/
+drivetru-prototype/
 ├── .ai/                          # AI context files
 │   ├── AI_SESSION_PROMPT.md
 │   ├── CONTEXT.md               # This file
@@ -264,7 +264,7 @@ drivelife-prototype/
 ## Questions for Client (Track Here)
 
 - [ ] Exact color scheme / brand guidelines?
-- [ ] Logo assets for Suzuki/Citroen/Drive Life?
+- [ ] Logo assets for Suzuki/Citroen/Drive Tru?
 - [ ] Real showroom addresses and photos?
 - [ ] Sample car inventory for realistic demo?
 - [ ] Arabic translation priority pages?
@@ -309,7 +309,7 @@ npm install -g vercel
 # Deploy (2 minutes)
 vercel
 
-# Your URL: https://drivelife-prototype.vercel.app
+# Your URL: https://drivetru-prototype.vercel.app
 ```
 
 ### Documentation
@@ -319,10 +319,10 @@ vercel
 - **Pre-Deploy Checklist:** `.ai/PRE_DEPLOY_CHECKLIST.md` - Testing guide
 
 ### Live URLs (After Deployment)
-- Production: `https://drivelife-prototype.vercel.app`
-- English: `https://drivelife-prototype.vercel.app/en`
-- Arabic: `https://drivelife-prototype.vercel.app/ar`
-- Admin: `https://drivelife-prototype.vercel.app/admin`
+- Production: `https://drivetru-prototype.vercel.app`
+- English: `https://drivetru-prototype.vercel.app/en`
+- Arabic: `https://drivetru-prototype.vercel.app/ar`
+- Admin: `https://drivetru-prototype.vercel.app/admin`
 
 ### Recommended Hosting
 **Vercel** - Zero-config Next.js hosting, automatic preview URLs, free SSL, UAE region support

@@ -1,4 +1,4 @@
-# Deployment Guide - Drive Life Prototype
+# Deployment Guide - Drive Tru Prototype
 
 > Last Updated: Jan 19, 2026
 
@@ -31,9 +31,9 @@ Your project is **READY TO DEPLOY**! Here's what's already configured:
 ```bash
 git init
 git add .
-git commit -m "Initial commit - Drive Life prototype"
+git commit -m "Initial commit - Drive Tru prototype"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/drivelife-prototype.git
+git remote add origin https://github.com/YOUR_USERNAME/drivetru-prototype.git
 git push -u origin main
 ```
 
@@ -41,14 +41,14 @@ git push -u origin main
    - Go to [vercel.com](https://vercel.com)
    - Sign in with GitHub
    - Click "Add New Project"
-   - Import your `drivelife-prototype` repository
+   - Import your `drivetru-prototype` repository
    - Vercel auto-detects Next.js settings
    - Click "Deploy"
    - ✅ Done! Your site will be live in ~2 minutes
 
 3. **Your URLs**:
-   - Production: `https://drivelife-prototype.vercel.app`
-   - Custom domain (optional): `drivelife.yourdomain.com`
+   - Production: `https://drivetru-prototype.vercel.app`
+   - Custom domain (optional): `drivetru.yourdomain.com`
    - Preview: Automatic URL for each branch/PR
 
 **Environment Variables** (if needed later):
@@ -92,7 +92,7 @@ railway init
 railway up
 ```
 
-Your site will be live at `https://drivelife-prototype.up.railway.app`
+Your site will be live at `https://drivetru-prototype.up.railway.app`
 
 ---
 
@@ -140,7 +140,7 @@ Here's the **fastest path** to get your prototype live:
 npm install -g vercel
 
 # Deploy from your project folder
-cd drivelife-prototype
+cd drivetru-prototype
 vercel
 
 # Follow prompts:
@@ -148,7 +148,7 @@ vercel
 # - Set up project? Yes
 # - Which scope? Your account
 # - Link to existing project? No
-# - What's your project name? drivelife-prototype
+# - What's your project name? drivetru-prototype
 # - In which directory is your code? ./
 # - Want to modify settings? No
 
@@ -167,16 +167,16 @@ vercel --prod
 After deploying to Vercel, you'll get:
 
 1. **Production URL**: 
-   - `https://drivelife-prototype.vercel.app`
+   - `https://drivetru-prototype.vercel.app`
    - Share this for demos
 
 2. **Preview URLs** (automatic for each git branch):
-   - `https://drivelife-prototype-git-feature-branch.vercel.app`
+   - `https://drivetru-prototype-git-feature-branch.vercel.app`
    - Perfect for showing work-in-progress
 
 3. **Custom Domain** (optional):
    - Go to Vercel dashboard → Settings → Domains
-   - Add: `prototype.drivelife.ae` or similar
+   - Add: `prototype.drivetru.ae` or similar
    - Update DNS records as shown
 
 ---
@@ -263,11 +263,11 @@ Once connected to GitHub:
 
 ## 🎨 Custom Domain Setup (Optional)
 
-### For `drivelife.ae` or similar:
+### For `drivetru.ae` or similar:
 
 1. **In Vercel**:
    - Dashboard → Your Project → Settings → Domains
-   - Add domain: `prototype.drivelife.ae`
+   - Add domain: `prototype.drivetru.ae`
 
 2. **In your DNS provider**:
    - Add CNAME record:
@@ -333,8 +333,8 @@ npm start
    ```
    Hi team,
    
-   Drive Life prototype is live:
-   🔗 https://drivelife-prototype.vercel.app
+   Drive Tru prototype is live:
+   🔗 https://drivetru-prototype.vercel.app
    
    Languages: /en (English) and /ar (Arabic)
    
@@ -373,14 +373,14 @@ npm start
 **Email template:**
 
 ```
-Subject: Drive Life Prototype - Ready for Review
+Subject: Drive Tru Prototype - Ready for Review
 
 Hi [Client Name],
 
-The Drive Life marketplace prototype is now live and ready for your review:
+The Drive Tru marketplace prototype is now live and ready for your review:
 
-🔗 English: https://drivelife-prototype.vercel.app/en
-🔗 Arabic: https://drivelife-prototype.vercel.app/ar
+🔗 English: https://drivetru-prototype.vercel.app/en
+🔗 Arabic: https://drivetru-prototype.vercel.app/ar
 
 Key features demonstrated:
 • Browse cars with filters (make, price, year, etc.)

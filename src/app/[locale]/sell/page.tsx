@@ -283,7 +283,7 @@ const translations = {
     step3Title: 'Schedule Inspection',
     step3Desc: 'Book a convenient time for inspection. Get paid the same day after verification.',
     startNow: 'Start Now',
-    whySellTitle: 'Why Sell With Drive Life?',
+    whySellTitle: 'Why Sell With Drive Tru?',
     whySellSubtitle: 'We make selling your car simple, fast, and profitable.',
     benefit1Title: 'Best Prices',
     benefit1Desc: 'We offer competitive prices based on real-time market data and fair valuations.',

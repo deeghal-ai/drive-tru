@@ -1,4 +1,4 @@
-// Body Types Page - Drive Life
+// Body Types Page - Drive Tru
 import Link from 'next/link'
 import { cars } from '@/data/cars'
 import { ArrowRight, Car } from 'lucide-react'

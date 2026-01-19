@@ -1,4 +1,4 @@
-# Drive Life - Pre-owned Car Marketplace Prototype
+# Drive Tru - Pre-owned Car Marketplace Prototype
 
 > **⚠️ DESIGN PROTOTYPE** - Not for production deployment
 > 
@@ -22,7 +22,7 @@ http://localhost:3000
 ## Project Structure
 
 ```
-drivelife-prototype/
+drivetru-prototype/
 ├── .ai/                          # AI context files (READ THESE FIRST!)
 │   ├── AI_SESSION_PROMPT.md     # Copy this when starting AI sessions
 │   ├── CONTEXT.md               # Project state & progress tracking
@@ -279,9 +279,9 @@ vercel
 ```
 
 ### Your URLs After Deploy
-- **Production**: `https://drivelife-prototype.vercel.app`
-- **English**: `https://drivelife-prototype.vercel.app/en`
-- **Arabic**: `https://drivelife-prototype.vercel.app/ar`
+- **Production**: `https://drivetru-prototype.vercel.app`
+- **English**: `https://drivetru-prototype.vercel.app/en`
+- **Arabic**: `https://drivetru-prototype.vercel.app/ar`
 
 ### Already Configured ✅
 - ✅ `next.config.js` - TypeScript errors ignored

@@ -1,4 +1,4 @@
-// Home Page - Drive Life
+// Home Page - Drive Tru
 // TODO: Generate sections from v0.dev using prompts in .ai/V0_PROMPTS.md
 
 import Link from 'next/link'
@@ -250,7 +250,7 @@ const translations = {
     browseByType: 'Browse by Body Type',
     browseByBrand: 'Browse by Brand',
     cars: 'cars',
-    whyChooseUs: 'Why Choose Drive Life',
+    whyChooseUs: 'Why Choose Drive Tru',
     usp1: 'Certified Quality',
     usp1Desc: '150+ point inspection on every vehicle',
     usp2: 'Easy Financing',

@@ -106,7 +106,7 @@ const translations = {
     needHelp: 'Need Help?',
     needHelpDesc: 'Our finance experts are here to help you find the best deal.',
     contactUs: 'Contact Us',
-    whyFinance: 'Why Finance with Drive Life?',
+    whyFinance: 'Why Finance with Drive Tru?',
     benefit1: 'Competitive Rates',
     benefit1Desc: 'Starting from 3.99% p.a. with our partner banks',
     benefit2: 'Quick Approval',

@@ -1,4 +1,4 @@
-# Integration Documentation - Drive Life
+# Integration Documentation - Drive Tru
 
 > Technical documentation for RFP and effort estimation
 > All integrations are MOCKED in prototype but documented here for production planning
@@ -9,7 +9,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         DRIVE LIFE WEBSITE                                  │
+│                         Drive Tru WEBSITE                                  │
 │                                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
 │  │                    DATA SOURCES (Inbound)                           │   │
@@ -434,8 +434,8 @@ Publish vehicle listings to Dubizzle Motors marketplace automatically.
     <body_type>Hatchback</body_type>
     <color>White</color>
     <images>
-      <image>https://drivelife.ae/images/car1.jpg</image>
-      <image>https://drivelife.ae/images/car2.jpg</image>
+      <image>https://drivetru.ae/images/car1.jpg</image>
+      <image>https://drivetru.ae/images/car2.jpg</image>
     </images>
     <location>
       <city>Dubai</city>
@@ -449,7 +449,7 @@ Publish vehicle listings to Dubizzle Motors marketplace automatically.
 ```
 
 ### Sync Frequency
-- Feed hosted at: `https://drivelife.ae/feeds/dubizzle.xml`
+- Feed hosted at: `https://drivetru.ae/feeds/dubizzle.xml`
 - Dubizzle fetches hourly
 - Only include items updated in last 24 hours
 
@@ -505,7 +505,7 @@ Publish vehicle listings to YallaMotors marketplace.
 Trade-in acceptances and inventory additions flow to SAP for financial/inventory management.
 
 ### Scope
-- When customer sells car to Drive Life
+- When customer sells car to Drive Tru
 - When trade-in is accepted
 - Inventory value recording
 
@@ -545,7 +545,7 @@ Client has existing WhatsApp chatbot - just need to integrate links.
 ### Pre-filled Messages by Context
 | Context | Message |
 |---------|---------|
-| General | "Hi, I'd like to know more about Drive Life" |
+| General | "Hi, I'd like to know more about Drive Tru" |
 | Car Inquiry | "Hi, I'm interested in {make} {model} (VIN: {vin})" |
 | Test Drive | "Hi, I'd like to book a test drive for {car}" |
 | Sell | "Hi, I'd like to sell my car" |

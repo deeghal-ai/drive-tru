@@ -20,7 +20,7 @@ export function Footer({ locale }: FooterProps) {
               <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center font-bold text-xl">
                 DL
               </div>
-              <span className="font-bold text-xl">Drive Life</span>
+              <span className="font-bold text-xl">Drive Tru</span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
               {t.tagline}
@@ -78,7 +78,7 @@ export function Footer({ locale }: FooterProps) {
               </li>
               <li className="flex items-center gap-2 text-gray-400">
                 <Mail className="w-5 h-5 text-secondary" />
-                <a href="mailto:info@drivelife.ae" className="hover:text-white">info@drivelife.ae</a>
+                <a href="mailto:info@drivetru.ae" className="hover:text-white">info@drivetru.ae</a>
               </li>
               <li className="flex items-start gap-2 text-gray-400">
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0" />
@@ -134,7 +134,7 @@ const translations = {
     terms: 'Terms & Conditions',
     contactInfo: 'Contact Us',
     address: 'Dubai, United Arab Emirates',
-    copyright: '© 2024 Drive Life. All rights reserved.',
+    copyright: '© 2024 Drive Tru. All rights reserved.',
   },
   ar: {
     tagline: 'وجهتك الموثوقة للسيارات المستعملة المعتمدة في الإمارات.',

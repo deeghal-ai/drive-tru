@@ -1,4 +1,4 @@
-// Finance Landing Page - Drive Life
+// Finance Landing Page - Drive Tru
 import Link from 'next/link'
 import { 
   Calculator, 
@@ -402,7 +402,7 @@ const translations = {
     step3Desc: 'Receive offers from multiple banks within 24 hours.',
     step4: 'Drive Away',
     step4Desc: 'Choose the best offer, complete documentation, and drive your new car home.',
-    whyFinanceWithUs: 'Why Finance with Drive Life?',
+    whyFinanceWithUs: 'Why Finance with Drive Tru?',
     whyFinanceDesc: 'Experience hassle-free car financing with competitive rates and expert guidance.',
     benefit1: 'Competitive Rates',
     benefit1Desc: 'Starting from 3.49% p.a. with our exclusive bank partnerships.',

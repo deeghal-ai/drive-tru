@@ -1,4 +1,4 @@
-# V0.dev Prompt Library - Drive Life Prototype
+# V0.dev Prompt Library - Drive Tru Prototype
 
 > Ready-to-use prompts for generating components in v0.dev
 > Copy prompt → Paste in v0.dev → Copy output → Paste in Cursor
@@ -23,7 +23,7 @@
 
 ```
 Create a modern automotive website header with:
-- Logo on the left (placeholder for "Drive Life" text)
+- Logo on the left (placeholder for "Drive Tru" text)
 - Main navigation: Home, Buy (dropdown), Sell (dropdown), Finance, Offers, Locations, Contact
 - Buy dropdown: Cars Listing, Popular Models, Body Types (SUV, Sedan, Hatchback)
 - Sell dropdown: Sell My Car, Trade-in

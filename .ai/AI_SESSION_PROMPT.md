@@ -1,4 +1,4 @@
-# AI Session Starter - Drive Life Prototype
+# AI Session Starter - Drive Tru Prototype
 
 Copy and paste EVERYTHING below the line when starting a new AI coding session.
 
@@ -6,7 +6,7 @@ Copy and paste EVERYTHING below the line when starting a new AI coding session.
 
 ## Project Context
 
-You are helping me build a **DESIGN PROTOTYPE** for "Drive Life" - a pre-owned car marketplace for UAE (Suzuki & Citroen brands under ARTC/Al Rostamani). 
+You are helping me build a **DESIGN PROTOTYPE** for "Drive Tru" - a pre-owned car marketplace for UAE (Suzuki & Citroen brands under ARTC/Al Rostamani). 
 
 **⚠️ IMPORTANT: This is NOT a production application.**
 

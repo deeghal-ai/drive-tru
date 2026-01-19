@@ -1,4 +1,4 @@
-// Mock showroom/location data for Drive Life prototype
+// Mock showroom/location data for Drive Tru prototype
 
 export interface Showroom {
   id: string
@@ -35,7 +35,7 @@ export const showrooms: Showroom[] = [
     emirate: 'Dubai',
     phone: '+971 4 300 1234',
     whatsapp: '+971501234567',
-    email: 'deira@drivelife.ae',
+    email: 'deira@drivetru.ae',
     coordinates: {
       lat: 25.2654,
       lng: 55.3088
@@ -58,7 +58,7 @@ export const showrooms: Showroom[] = [
     emirate: 'Dubai',
     phone: '+971 4 300 5678',
     whatsapp: '+971505678901',
-    email: 'szr@drivelife.ae',
+    email: 'szr@drivetru.ae',
     coordinates: {
       lat: 25.1185,
       lng: 55.2006
@@ -81,7 +81,7 @@ export const showrooms: Showroom[] = [
     emirate: 'Abu Dhabi',
     phone: '+971 2 500 9012',
     whatsapp: '+971509012345',
-    email: 'abudhabi@drivelife.ae',
+    email: 'abudhabi@drivetru.ae',
     coordinates: {
       lat: 24.3658,
       lng: 54.5011

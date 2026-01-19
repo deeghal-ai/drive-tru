@@ -31,7 +31,7 @@ git push origin main
 
 2. Visit: https://vercel.com/new
 
-3. Import your `drivelife-prototype` repository
+3. Import your `drivetru-prototype` repository
 
 4. Click "Deploy"
 
@@ -42,7 +42,7 @@ git push origin main
 ## What Happens Next?
 
 1. Vercel builds your project (~2 min)
-2. You get a live URL: `https://drivelife-prototype.vercel.app`
+2. You get a live URL: `https://drivetru-prototype.vercel.app`
 3. Share with stakeholders!
 
 ---
@@ -50,7 +50,7 @@ git push origin main
 ## After Deployment
 
 ### Test Your Site
-- Visit: `https://drivelife-prototype.vercel.app/en`
+- Visit: `https://drivetru-prototype.vercel.app/en`
 - Switch to Arabic: `/ar`
 - Check admin: `/admin`
 - Test on mobile
@@ -59,9 +59,9 @@ git push origin main
 
 **Quick Email:**
 ```
-The Drive Life prototype is live!
+The Drive Tru prototype is live!
 
-🔗 https://drivelife-prototype.vercel.app
+🔗 https://drivetru-prototype.vercel.app
 
 English: /en
 Arabic: /ar

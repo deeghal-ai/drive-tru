@@ -1,4 +1,4 @@
-// Mock car inventory for Drive Life prototype
+// Mock car inventory for Drive Tru prototype
 // Realistic UAE pre-owned car data - Suzuki & Citroen only
 
 export interface CarSpecs {

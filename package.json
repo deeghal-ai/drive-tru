@@ -1,8 +1,8 @@
 {
-  "name": "drivelife-prototype",
+  "name": "drivetru-prototype",
   "version": "0.1.0",
   "private": true,
-  "description": "Drive Life - Pre-owned Car Marketplace Prototype (UAE)",
+  "description": "Drive Tru - Pre-owned Car Marketplace Prototype (UAE)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

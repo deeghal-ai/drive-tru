@@ -105,23 +105,23 @@ export function getRelativeTime(dateString: string): string {
 export const storage = {
   getFavorites: (): string[] => {
     if (typeof window === 'undefined') return []
-    const saved = localStorage.getItem('drivelife_favorites')
+    const saved = localStorage.getItem('drivetru_favorites')
     return saved ? JSON.parse(saved) : []
   },
   
   setFavorites: (ids: string[]) => {
     if (typeof window === 'undefined') return
-    localStorage.setItem('drivelife_favorites', JSON.stringify(ids))
+    localStorage.setItem('drivetru_favorites', JSON.stringify(ids))
   },
   
   getCompare: (): string[] => {
     if (typeof window === 'undefined') return []
-    const saved = localStorage.getItem('drivelife_compare')
+    const saved = localStorage.getItem('drivetru_compare')
     return saved ? JSON.parse(saved) : []
   },
   
   setCompare: (ids: string[]) => {
     if (typeof window === 'undefined') return
-    localStorage.setItem('drivelife_compare', JSON.stringify(ids))
+    localStorage.setItem('drivetru_compare', JSON.stringify(ids))
   },
 }

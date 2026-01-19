@@ -17,7 +17,7 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // Brand colors - Drive Life
+        // Brand colors - Drive Tru
         primary: {
           DEFAULT: '#1a1a2e',
           foreground: '#ffffff',

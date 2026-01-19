@@ -244,7 +244,7 @@ vercel
 ### Expected Result
 - ✅ Build completes successfully
 - ✅ Deployment succeeds
-- ✅ You receive URL: `https://drivelife-prototype.vercel.app`
+- ✅ You receive URL: `https://drivetru-prototype.vercel.app`
 
 ---
 
@@ -306,7 +306,7 @@ Once deployed, test the live site:
 
 ### Presentation Script
 ```
-"This is a functional prototype of the Drive Life marketplace.
+"This is a functional prototype of the Drive Tru marketplace.
 
 All features you see are working with realistic mock data:
 - Bilingual support (English/Arabic with RTL)
@@ -349,7 +349,7 @@ git push origin main
 ```
 
 Your prototype will be live at:
-**https://drivelife-prototype.vercel.app**
+**https://drivetru-prototype.vercel.app**
 
 ---
 

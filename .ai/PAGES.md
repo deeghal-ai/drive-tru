@@ -1,4 +1,4 @@
-# Pages Specification - Drive Life Prototype
+# Pages Specification - Drive Tru Prototype
 
 > Complete page inventory based on sitemap
 > Each page has: Route, Components needed, Data requirements, Priority
@@ -10,7 +10,7 @@
 ```
 /[locale]/                    # en or ar
 ├── /                         # Home
-├── /about                    # About Drive Life
+├── /about                    # About Drive Tru
 │   └── /vision              # Vision & Mission
 ├── /buy                      # Browse all cars (redirect to /buy/cars)
 │   ├── /cars                 # Car listings
@@ -82,7 +82,7 @@
 2. Our story
 3. Vision & Mission (subpage link)
 4. Leadership team (optional)
-5. Why Drive Life
+5. Why Drive Tru
 6. Partners/Certifications
 
 **Components:**

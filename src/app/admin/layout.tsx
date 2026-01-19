@@ -88,7 +88,7 @@ export default function AdminLayout({
               <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center font-bold text-sm">
                 DL
               </div>
-              <span className="font-semibold">Drive Life CMS</span>
+              <span className="font-semibold">Drive Tru CMS</span>
             </div>
           )}
           {sidebarCollapsed && (
@@ -173,7 +173,7 @@ export default function AdminLayout({
             {!sidebarCollapsed && (
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium truncate">Quality Team</p>
-                <p className="text-xs text-slate-400 truncate">admin@drivelife.ae</p>
+                <p className="text-xs text-slate-400 truncate">admin@drivetru.ae</p>
               </div>
             )}
           </div>
@@ -241,7 +241,7 @@ export default function AdminLayout({
         {/* Footer */}
         <footer className="py-4 px-6 border-t bg-white">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
-            <p>Drive Life CMS © 2024</p>
+            <p>Drive Tru CMS © 2024</p>
             <p>Prototype Version</p>
           </div>
         </footer>

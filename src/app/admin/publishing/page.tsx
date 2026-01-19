@@ -46,11 +46,11 @@ const createPublishableListings = (): PublishableListing[] => {
 const platforms = [
   { 
     id: 'website' as Platform, 
-    name: 'Drive Life Website', 
+    name: 'Drive Tru Website', 
     icon: '🌐',
     color: 'bg-blue-500',
     description: 'Your main website',
-    url: 'drivelife.ae'
+    url: 'drivetru.ae'
   },
   { 
     id: 'dubizzle' as Platform, 
