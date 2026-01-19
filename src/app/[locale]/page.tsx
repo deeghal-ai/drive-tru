@@ -41,8 +41,20 @@ export default function HomePage({
   return (
     <div className="min-h-screen">
       {/* HERO SECTION */}
-      <section className="relative bg-gradient-to-br from-primary to-accent text-white py-20 md:py-32">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative text-white py-20 md:py-32 min-h-[600px] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
+          }}
+        />
+        {/* Dark Overlay with Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        {/* Accent Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-transparent mix-blend-overlay" />
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             {t.heroTitle}
           </h1>
