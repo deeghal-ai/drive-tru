@@ -1,0 +1,330 @@
+# Drive Life Prototype - Cursor Rules
+
+> This is a DESIGN PROTOTYPE, not a production application.
+> Prioritize speed and visual completeness over code perfection.
+
+## Project Context
+
+You are building a design prototype for "Drive Life" - a pre-owned car marketplace for UAE.
+This prototype is for stakeholder presentations, RFP estimation, and client sign-off.
+
+**Reference Sites:**
+- Primary: https://www.automall.ae/en/
+- Secondary: https://www.kavak.com/ae
+
+## Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript (relaxed - `any` is acceptable)
+- Tailwind CSS
+- shadcn/ui components
+- Lucide React icons
+- No real database - JSON files for data
+- No real authentication
+
+## Folder Structure
+
+```
+src/
+├── app/[locale]/          # Routes (en/ar)
+├── components/
+│   ├── ui/                # shadcn components
+│   ├── layout/            # Header, Footer
+│   ├── cars/              # Car-specific
+│   ├── forms/             # Form components
+│   └── shared/            # Reusable
+├── data/                  # Mock JSON/TS data
+├── lib/                   # Utilities
+└── styles/                # Global CSS
+```
+
+## Coding Guidelines (Prototype Mode)
+
+### DO ✅
+- Copy-paste from v0.dev directly
+- Use inline styles when faster
+- Hardcode data for demos
+- Use `any` type when TypeScript is blocking you
+- Duplicate code if it's faster than abstracting
+- Use placeholder images
+- Mock API responses with static data
+- Comment "TODO: Production" for real implementation notes
+
+### DON'T ❌
+- Spend time on error boundaries
+- Write unit tests
+- Optimize for performance
+- Set up real authentication
+- Connect real APIs
+- Worry about SEO perfectly
+- Over-engineer state management
+
+## Component Patterns
+
+### When creating components:
+1. Check if shadcn/ui has it first (`npx shadcn-ui@latest add [component]`)
+2. Check `.ai/V0_PROMPTS.md` for ready prompts
+3. Keep components simple and flat
+4. Props interface is nice-to-have, not required
+
+### Quick component template:
+```tsx
+// components/cars/CarCard.tsx
+import { Car } from '@/data/cars'
+
+export function CarCard({ car }: { car: Car }) {
+  return (
+    <div className="border rounded-lg p-4">
+      {/* Component content */}
+    </div>
+  )
+}
+```
+
+## Data Handling
+
+### Mock data location:
+```
+src/data/
+├── cars.ts         # Vehicle inventory
+├── locations.ts    # Showrooms
+├── offers.ts       # Promotions
+└── translations.ts # i18n strings
+```
+
+### Using data:
+```tsx
+// In server component
+import { cars } from '@/data/cars'
+
+// In client component
+'use client'
+import { cars } from '@/data/cars'
+```
+
+### Filtering (client-side is fine):
+```tsx
+const filtered = cars.filter(car => 
+  car.make === selectedMake && 
+  car.price >= minPrice
+)
+```
+
+## State Management
+
+### For prototype, keep it simple:
+- `useState` for local component state
+- `localStorage` for persistence (favorites, compare)
+- URL params for shareable filters
+- No Redux, no Zustand needed
+
+### Local storage pattern:
+```tsx
+'use client'
+import { useEffect, useState } from 'react'
+
+export function useFavorites() {
+  const [favorites, setFavorites] = useState<string[]>([])
+  
+  useEffect(() => {
+    const saved = localStorage.getItem('favorites')
+    if (saved) setFavorites(JSON.parse(saved))
+  }, [])
+  
+  const toggle = (id: string) => {
+    const updated = favorites.includes(id)
+      ? favorites.filter(f => f !== id)
+      : [...favorites, id]
+    setFavorites(updated)
+    localStorage.setItem('favorites', JSON.stringify(updated))
+  }
+  
+  return { favorites, toggle, isFavorite: (id: string) => favorites.includes(id) }
+}
+```
+
+## i18n / RTL Support
+
+### Simple approach for prototype:
+```tsx
+// app/[locale]/layout.tsx
+export default function Layout({ 
+  children, 
+  params: { locale } 
+}: { 
+  children: React.ReactNode
+  params: { locale: string }
+}) {
+  return (
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+### Language toggle:
+```tsx
+'use client'
+import { useRouter, usePathname } from 'next/navigation'
+
+export function LanguageToggle() {
+  const router = useRouter()
+  const pathname = usePathname()
+  
+  const switchLocale = (newLocale: string) => {
+    const newPath = pathname.replace(/^\/(en|ar)/, `/${newLocale}`)
+    router.push(newPath)
+  }
+  
+  return (
+    <div className="flex gap-2">
+      <button onClick={() => switchLocale('en')}>EN</button>
+      <button onClick={() => switchLocale('ar')}>العربية</button>
+    </div>
+  )
+}
+```
+
+## Form Handling
+
+### No real submission needed:
+```tsx
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault()
+  // Show success message
+  setSubmitted(true)
+  // In production: send to Zoho CRM
+}
+```
+
+### Success states are important for demo:
+```tsx
+{submitted ? (
+  <div className="text-green-600">
+    ✓ Thank you! We'll contact you within 24 hours.
+  </div>
+) : (
+  <form onSubmit={handleSubmit}>...</form>
+)}
+```
+
+## Images
+
+### Use placeholder services:
+```tsx
+// Car images
+<img src="/images/cars/placeholder-1.jpg" alt={car.model} />
+
+// Or use Unsplash for variety
+<img src="https://source.unsplash.com/400x300/?car,suv" alt="SUV" />
+```
+
+### For production notes:
+```tsx
+{/* TODO: Production - Replace with AI Studio images via VIN lookup */}
+<img src={car.images[0] || '/placeholder-car.jpg'} />
+```
+
+## Common Patterns
+
+### Page structure:
+```tsx
+// app/[locale]/buy/cars/page.tsx
+import { cars } from '@/data/cars'
+import { CarGrid } from '@/components/cars/CarGrid'
+import { FilterSidebar } from '@/components/cars/FilterSidebar'
+
+export default function CarsPage() {
+  return (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-8">Browse Cars</h1>
+      <div className="flex gap-8">
+        <FilterSidebar />
+        <CarGrid cars={cars} />
+      </div>
+    </div>
+  )
+}
+```
+
+### Client wrapper for interactivity:
+```tsx
+// If page needs client-side state, wrap it
+'use client'
+export function BrowseCarsClient({ initialCars }: { initialCars: Car[] }) {
+  const [filters, setFilters] = useState({})
+  const filtered = filterCars(initialCars, filters)
+  
+  return (
+    <>
+      <FilterSidebar filters={filters} onChange={setFilters} />
+      <CarGrid cars={filtered} />
+    </>
+  )
+}
+```
+
+## Styling Shortcuts
+
+### Tailwind utilities for automotive UI:
+```css
+/* Price styling */
+.price { @apply text-2xl font-bold text-primary }
+
+/* Status badges */
+.badge-available { @apply bg-green-100 text-green-800 }
+.badge-reserved { @apply bg-amber-100 text-amber-800 }
+.badge-sold { @apply bg-red-100 text-red-800 }
+
+/* Card hover */
+.car-card { @apply transition-shadow hover:shadow-lg }
+```
+
+### Design tokens (add to globals.css):
+```css
+:root {
+  --primary: #1a1a2e;
+  --secondary: #e94560;
+  --accent: #0f3460;
+}
+```
+
+## Quick Reference
+
+### shadcn components to install:
+```bash
+npx shadcn-ui@latest add button card dialog dropdown-menu input select slider tabs sheet badge checkbox
+```
+
+### Useful utilities:
+```tsx
+// Format price
+const formatPrice = (price: number) => 
+  `AED ${price.toLocaleString()}`
+
+// Format mileage
+const formatMileage = (km: number) => 
+  `${km.toLocaleString()} km`
+
+// Calculate EMI
+const calculateEMI = (principal: number, rate: number, months: number) => {
+  const r = rate / 100 / 12
+  return Math.round(principal * r * Math.pow(1 + r, months) / (Math.pow(1 + r, months) - 1))
+}
+```
+
+## When Stuck
+
+1. Check `.ai/V0_PROMPTS.md` for component prompts
+2. Check `.ai/FEATURES.md` for what to build vs mock
+3. Check `.ai/PAGES.md` for page requirements
+4. Use v0.dev to generate complex UI quickly
+5. It's okay to hardcode - this is a prototype!
+
+## End of Session
+
+Before ending, update `.ai/CONTEXT.md`:
+- Mark completed pages
+- Note any issues
+- List next priorities
