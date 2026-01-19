@@ -92,8 +92,7 @@ export const cars: Car[] = [
     warranty: '2-year / 50,000 km comprehensive warranty',
     features: ['Apple CarPlay', 'Android Auto', 'Rear Camera', 'Cruise Control', 'LED Headlights', 'Alloy Wheels'],
     images: [
-      'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800',
-      'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800',
+      '/images/cars/suzuki/swift-1.jpg',
     ],
     showroom: showrooms.deira,
     createdAt: '2024-01-10'
@@ -123,7 +122,7 @@ export const cars: Car[] = [
     warranty: null,
     features: ['Touchscreen', 'Bluetooth', 'USB', 'ABS', 'Airbags', 'Keyless Entry'],
     images: [
-      'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800',
+      '/images/cars/suzuki/swift-2.jpg',
     ],
     showroom: showrooms.szr,
     createdAt: '2024-01-08'
@@ -153,7 +152,7 @@ export const cars: Car[] = [
     warranty: '3-year / 100,000 km warranty',
     features: ['4WD', 'Hill Descent', 'Touchscreen', 'Bluetooth', 'Off-road Mode'],
     images: [
-      'https://images.unsplash.com/photo-1675315521207-16c9a4c36dcf?w=800',
+      '/images/cars/suzuki/jimny-1.jpg',
     ],
     showroom: showrooms.deira,
     createdAt: '2024-01-12'
@@ -183,7 +182,7 @@ export const cars: Car[] = [
     warranty: '5-year / 150,000 km hybrid warranty',
     features: ['Hybrid System', 'Panoramic Sunroof', 'Wireless Charging', 'ADAS', '360 Camera'],
     images: [
-      'https://images.unsplash.com/photo-1551830820-330a71b99659?w=800',
+      '/images/cars/suzuki/grand-vitara-1.jpg',
     ],
     showroom: showrooms.abudhabi,
     createdAt: '2024-01-14'
@@ -213,7 +212,7 @@ export const cars: Car[] = [
     warranty: null,
     features: ['Touchscreen', 'Rear AC Vents', 'ABS', 'Airbags'],
     images: [
-      'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800',
+      '/images/cars/suzuki/dzire-1.jpg',
     ],
     showroom: showrooms.deira,
     createdAt: '2024-01-05'
@@ -243,7 +242,7 @@ export const cars: Car[] = [
     warranty: null,
     features: ['Touchscreen', 'Rear Camera', 'ABS', 'Dual Airbags'],
     images: [
-      'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800',
+      '/images/cars/suzuki/baleno-1.jpg',
     ],
     showroom: showrooms.deira,
     createdAt: '2024-01-03'
@@ -273,7 +272,7 @@ export const cars: Car[] = [
     warranty: null,
     features: ['4WD', 'Off-road Capable', 'Hill Descent', 'Basic Infotainment'],
     images: [
-      'https://images.unsplash.com/photo-1675315521207-16c9a4c36dcf?w=800',
+      '/images/cars/suzuki/jimny-2.jpg',
     ],
     showroom: showrooms.abudhabi,
     createdAt: '2024-01-01'
@@ -303,7 +302,7 @@ export const cars: Car[] = [
     warranty: '2-year warranty',
     features: ['7 Seater', 'Rear AC', 'Touchscreen', 'Rear Camera', 'ABS'],
     images: [
-      'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800',
+      '/images/cars/suzuki/ertiga-1.jpg',
     ],
     showroom: showrooms.deira,
     createdAt: '2024-01-08'
@@ -333,7 +332,7 @@ export const cars: Car[] = [
     warranty: '3-year warranty',
     features: ['Sport Mode', 'Paddle Shifters', 'Sport Suspension', 'LED Lights', 'Sport Seats'],
     images: [
-      'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800',
+      '/images/cars/suzuki/swift-3.jpg',
     ],
     showroom: showrooms.szr,
     createdAt: '2024-01-11'
@@ -363,7 +362,7 @@ export const cars: Car[] = [
     warranty: '2-year warranty',
     features: ['Sunroof', 'LED Headlights', 'Touchscreen', 'Apple CarPlay', 'Rear Camera'],
     images: [
-      'https://images.unsplash.com/photo-1551830820-330a71b99659?w=800',
+      '/images/cars/suzuki/grand-vitara-2.jpg',
     ],
     showroom: showrooms.szr,
     createdAt: '2024-01-09'
@@ -393,7 +392,7 @@ export const cars: Car[] = [
     warranty: '3-year warranty',
     features: ['Touchscreen', 'Wireless Charging', 'Cruise Control', 'LED DRLs', 'ABS'],
     images: [
-      'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800',
+      '/images/cars/suzuki/dzire-2.jpg',
     ],
     showroom: showrooms.abudhabi,
     createdAt: '2024-01-13'
@@ -425,7 +424,7 @@ export const cars: Car[] = [
     warranty: '3-year manufacturer warranty',
     features: ['10" Touchscreen', 'Apple CarPlay', 'Wireless Charging', 'Rear Camera'],
     images: [
-      'https://images.unsplash.com/photo-1606611013016-96f770517ef7?w=800',
+      '/images/cars/citroen/c3-1.jpg',
     ],
     showroom: showrooms.szr,
     createdAt: '2024-01-11'
@@ -455,7 +454,7 @@ export const cars: Car[] = [
     warranty: '2-year extended warranty',
     features: ['Panoramic Roof', 'Grip Control', 'Blind Spot', 'Lane Assist'],
     images: [
-      'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800',
+      '/images/cars/citroen/c3-aircross-1.jpg',
     ],
     showroom: showrooms.deira,
     createdAt: '2024-01-09'
@@ -485,7 +484,7 @@ export const cars: Car[] = [
     warranty: null,
     features: ['Advanced Comfort Seats', 'Highway Assist', 'Electric Tailgate', 'Premium Audio'],
     images: [
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800',
+      '/images/cars/citroen/c5-aircross-1.jpg',
     ],
     showroom: showrooms.abudhabi,
     createdAt: '2024-01-06'
@@ -515,7 +514,7 @@ export const cars: Car[] = [
     warranty: '3-year manufacturer warranty',
     features: ['Extended Head-Up Display', 'Highway Assist', 'Advanced Comfort Seats'],
     images: [
-      'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800',
+      '/images/cars/citroen/c4-1.jpg',
     ],
     showroom: showrooms.szr,
     createdAt: '2024-01-12'
@@ -545,7 +544,7 @@ export const cars: Car[] = [
     warranty: null,
     features: ['7" Touchscreen', 'Bluetooth', 'USB', 'ABS'],
     images: [
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800',
+      '/images/cars/citroen/c3-2.jpg',
     ],
     showroom: showrooms.abudhabi,
     createdAt: '2024-01-05'
@@ -575,7 +574,7 @@ export const cars: Car[] = [
     warranty: '5-year manufacturer warranty',
     features: ['Panoramic Roof', 'ADAS', 'Wireless Charging', '360 Camera', 'Apple CarPlay'],
     images: [
-      'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800',
+      '/images/cars/citroen/c3-aircross-2.jpg',
     ],
     showroom: showrooms.deira,
     createdAt: '2024-01-14'
@@ -605,7 +604,7 @@ export const cars: Car[] = [
     warranty: '2-year warranty',
     features: ['Comfort Seats', 'Rear Camera', 'Parking Sensors', 'LED Headlights'],
     images: [
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800',
+      '/images/cars/citroen/c5-aircross-2.jpg',
     ],
     showroom: showrooms.szr,
     createdAt: '2024-01-07'
@@ -635,7 +634,7 @@ export const cars: Car[] = [
     warranty: null,
     features: ['Touchscreen', 'Comfort Seats', 'ABS', 'Airbags', 'Cruise Control'],
     images: [
-      'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800',
+      '/images/cars/citroen/c4-2.jpg',
     ],
     showroom: showrooms.deira,
     createdAt: '2024-01-04'
@@ -665,7 +664,7 @@ export const cars: Car[] = [
     warranty: '1-year warranty',
     features: ['Touchscreen', 'Bluetooth', 'ABS', 'Airbags'],
     images: [
-      'https://images.unsplash.com/photo-1606611013016-96f770517ef7?w=800',
+      '/images/cars/citroen/c3-3.jpg',
     ],
     showroom: showrooms.abudhabi,
     createdAt: '2024-01-02'
