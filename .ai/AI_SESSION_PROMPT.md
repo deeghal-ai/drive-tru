@@ -102,8 +102,7 @@ Update `.ai/CONTEXT.md`:
 
 ## Today's Session
 
-the images used are not representative of the cars. and there are missing images. can you plan to fix it
-# Or push to GitHub and import at vercel.com/new
+
 ```
 
 ---

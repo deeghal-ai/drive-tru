@@ -1,8 +1,30 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Calculator, Info } from 'lucide-react'
+import { Calculator, Info, Shield } from 'lucide-react'
 import { formatPrice, calculateEMI, calculateTotalInterest } from '@/lib/utils'
+
+// Insurance coverage types with rate multipliers
+const coverageTypes = [
+  { 
+    id: 'comprehensive', 
+    name: { en: 'Comprehensive', ar: 'شامل' },
+    description: { en: 'Full coverage including accidents, theft & fire', ar: 'تغطية كاملة تشمل الحوادث والسرقة والحريق' },
+    rate: 0.025 
+  },
+  { 
+    id: 'thirdParty', 
+    name: { en: 'Third Party', ar: 'طرف ثالث' },
+    description: { en: 'Covers damage to other vehicles only', ar: 'يغطي الأضرار للمركبات الأخرى فقط' },
+    rate: 0.01 
+  },
+  { 
+    id: 'thirdPartyFire', 
+    name: { en: 'Third Party + Fire/Theft', ar: 'طرف ثالث + حريق/سرقة' },
+    description: { en: 'Third party plus fire and theft protection', ar: 'طرف ثالث بالإضافة لحماية الحريق والسرقة' },
+    rate: 0.015 
+  },
+]
 
 interface EMICalculatorProps {
   locale: string
@@ -20,18 +42,33 @@ export function EMICalculator({ locale, defaultPrice = 75000, compact = false }:
   const [tenure, setTenure] = useState(60)
   const [rate, setRate] = useState(3.99)
   
+  // Insurance state
+  const [includeInsurance, setIncludeInsurance] = useState(false)
+  const [coverageType, setCoverageType] = useState('comprehensive')
+  
   const calculations = useMemo(() => {
     const downPayment = downPaymentType === 'percent' 
       ? (price * downPaymentValue / 100)
       : downPaymentValue
     
-    const loanAmount = price - downPayment
+    // Calculate insurance premium based on vehicle price and coverage type
+    const selectedCoverage = coverageTypes.find(c => c.id === coverageType)
+    const insurancePremium = includeInsurance && selectedCoverage 
+      ? Math.round(price * selectedCoverage.rate)
+      : 0
+    
+    // Add insurance premium to loan amount if included
+    const baseLoanAmount = price - downPayment
+    const loanAmount = baseLoanAmount + insurancePremium
+    
     const emi = calculateEMI(loanAmount, rate, tenure)
     const totalInterest = calculateTotalInterest(loanAmount, rate, tenure)
     const totalAmount = loanAmount + totalInterest
     
     return {
       downPayment,
+      baseLoanAmount,
+      insurancePremium,
       loanAmount,
       emi,
       totalInterest,
@@ -39,7 +76,7 @@ export function EMICalculator({ locale, defaultPrice = 75000, compact = false }:
       principalPercent: Math.round((loanAmount / totalAmount) * 100),
       interestPercent: Math.round((totalInterest / totalAmount) * 100),
     }
-  }, [price, downPaymentType, downPaymentValue, tenure, rate])
+  }, [price, downPaymentType, downPaymentValue, tenure, rate, includeInsurance, coverageType])
   
   if (compact) {
     return (
@@ -165,6 +202,79 @@ export function EMICalculator({ locale, defaultPrice = 75000, compact = false }:
               {t.rateNote}
             </p>
           </div>
+          
+          {/* Insurance Option */}
+          <div className="border-t pt-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-emerald-600" />
+                <span className="font-medium">{t.includeInsurance}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIncludeInsurance(!includeInsurance)}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                  includeInsurance ? 'bg-emerald-500' : 'bg-gray-300'
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    includeInsurance ? 'translate-x-6' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+            </div>
+            
+            {/* Coverage Type Selection - Always visible when insurance is enabled */}
+            <div 
+              className="space-y-3 overflow-hidden transition-all duration-300"
+              style={{ 
+                maxHeight: includeInsurance ? '500px' : '0px',
+                opacity: includeInsurance ? 1 : 0 
+              }}
+            >
+              <p className="text-sm font-semibold text-gray-700 mb-2">Select Coverage Type:</p>
+              
+              {coverageTypes.map((coverage) => (
+                <label
+                  key={coverage.id}
+                  className={`flex items-start gap-3 p-3 border-2 rounded-lg cursor-pointer transition-all ${
+                    coverageType === coverage.id
+                      ? 'border-emerald-500 bg-emerald-50'
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="insuranceCoverage"
+                    value={coverage.id}
+                    checked={coverageType === coverage.id}
+                    onChange={(e) => setCoverageType(e.target.value)}
+                    className="w-4 h-4 mt-0.5 text-emerald-600 border-gray-300 focus:ring-emerald-500"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-medium text-sm">
+                        {isArabic ? coverage.name.ar : coverage.name.en}
+                      </span>
+                      <span className="text-xs text-emerald-600 font-medium whitespace-nowrap">
+                        {(coverage.rate * 100).toFixed(1)}%
+                      </span>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {isArabic ? coverage.description.ar : coverage.description.en}
+                    </p>
+                  </div>
+                </label>
+              ))}
+              
+              {/* Insurance Premium Preview */}
+              <div className="bg-emerald-50 rounded-lg p-3 flex items-center justify-between">
+                <span className="text-sm text-emerald-800">{t.estimatedPremium}</span>
+                <span className="font-semibold text-emerald-700">{formatPrice(calculations.insurancePremium)}</span>
+              </div>
+            </div>
+          </div>
         </div>
         
         {/* Results Section */}
@@ -210,7 +320,20 @@ export function EMICalculator({ locale, defaultPrice = 75000, compact = false }:
           {/* Summary */}
           <div className="space-y-3">
             <div className="flex justify-between py-2 border-b">
-              <span className="text-muted-foreground">{t.loanAmount}</span>
+              <span className="text-muted-foreground">{t.vehicleLoan}</span>
+              <span className="font-semibold">{formatPrice(calculations.baseLoanAmount)}</span>
+            </div>
+            {includeInsurance && (
+              <div className="flex justify-between py-2 border-b">
+                <span className="text-muted-foreground flex items-center gap-1.5">
+                  <Shield className="w-4 h-4 text-emerald-600" />
+                  {t.insurancePremium}
+                </span>
+                <span className="font-semibold text-emerald-600">{formatPrice(calculations.insurancePremium)}</span>
+              </div>
+            )}
+            <div className="flex justify-between py-2 border-b">
+              <span className="text-muted-foreground">{t.totalLoanAmount}</span>
               <span className="font-semibold">{formatPrice(calculations.loanAmount)}</span>
             </div>
             <div className="flex justify-between py-2 border-b">
@@ -249,10 +372,14 @@ const translations = {
     perMonth: 'per month',
     principal: 'Principal',
     interest: 'Interest',
-    loanAmount: 'Loan Amount',
+    vehicleLoan: 'Vehicle Loan',
+    insurancePremium: 'Insurance Premium',
+    totalLoanAmount: 'Total Loan Amount',
     totalInterest: 'Total Interest',
     totalAmount: 'Total Amount Payable',
     applyNow: 'Apply for Financing',
+    includeInsurance: 'Include Insurance in Financing',
+    estimatedPremium: 'Estimated Annual Premium',
   },
   ar: {
     title: 'حاسبة القسط',
@@ -269,9 +396,13 @@ const translations = {
     perMonth: 'شهرياً',
     principal: 'المبلغ الأساسي',
     interest: 'الفائدة',
-    loanAmount: 'مبلغ القرض',
+    vehicleLoan: 'قرض السيارة',
+    insurancePremium: 'قسط التأمين',
+    totalLoanAmount: 'إجمالي مبلغ القرض',
     totalInterest: 'إجمالي الفائدة',
     totalAmount: 'إجمالي المبلغ المستحق',
     applyNow: 'تقديم طلب التمويل',
+    includeInsurance: 'تضمين التأمين في التمويل',
+    estimatedPremium: 'قسط التأمين السنوي التقديري',
   }
 }

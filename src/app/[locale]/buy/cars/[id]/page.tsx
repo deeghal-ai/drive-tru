@@ -7,11 +7,12 @@ import Image from 'next/image'
 import { 
   Heart, GitCompare, Share2, ChevronLeft, ChevronRight, 
   Fuel, Gauge, Settings, Calendar, MapPin, ShieldCheck,
-  Phone, MessageCircle, CalendarCheck, Calculator
+  MessageCircle, CalendarCheck, Calculator
 } from 'lucide-react'
 import { cars, getCarById, getSimilarCars, Car } from '@/data/cars'
 import { CarCard } from '@/components/cars/CarCard'
 import { EMICalculator } from '@/components/forms/EMICalculator'
+import { LeadCaptureModal } from '@/components/forms/LeadCaptureModal'
 import { cn, formatPrice, formatMileage, calculateEMI, getWhatsAppLink, storage } from '@/lib/utils'
 
 export default function CarDetailPage({ 
@@ -30,6 +31,8 @@ export default function CarDetailPage({
   const [isFavorite, setIsFavorite] = useState(false)
   const [showEMICalculator, setShowEMICalculator] = useState(false)
   const [activeTab, setActiveTab] = useState<'specs' | 'features' | 'warranty'>('specs')
+  const [showLeadModal, setShowLeadModal] = useState(false)
+  const [leadModalType, setLeadModalType] = useState<'whatsapp' | 'test-drive'>('whatsapp')
   
   useEffect(() => {
     const favorites = storage.getFavorites()
@@ -51,6 +54,11 @@ export default function CarDetailPage({
       storage.setCompare([...comparing, params.id])
       alert(t.addedToCompare)
     }
+  }
+  
+  const openLeadModal = (type: 'whatsapp' | 'test-drive') => {
+    setLeadModalType(type)
+    setShowLeadModal(true)
   }
   
   if (!car) {
@@ -364,24 +372,21 @@ export default function CarDetailPage({
               
               {/* Action buttons */}
               <div className="space-y-3">
-                <a 
-                  href={getWhatsAppLink('+971501234567', `Hi, I'm interested in ${car.year} ${car.make} ${car.model} (${car.vin})`)}
-                  target="_blank"
+                <button 
+                  onClick={() => openLeadModal('whatsapp')}
                   className="btn-whatsapp w-full flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5" />
                   {t.whatsapp}
-                </a>
+                </button>
                 
-                <button className="btn-secondary w-full flex items-center justify-center gap-2">
+                <button 
+                  onClick={() => openLeadModal('test-drive')}
+                  className="btn-secondary w-full flex items-center justify-center gap-2"
+                >
                   <CalendarCheck className="w-5 h-5" />
                   {t.bookTestDrive}
                 </button>
-                
-                <a href="tel:+97143001234" className="btn-outline w-full flex items-center justify-center gap-2">
-                  <Phone className="w-5 h-5" />
-                  {t.callUs}
-                </a>
               </div>
               
               {/* EMI Calculator Toggle */}
@@ -439,6 +444,20 @@ export default function CarDetailPage({
           </div>
         )}
       </div>
+      
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        isOpen={showLeadModal}
+        onClose={() => setShowLeadModal(false)}
+        type={leadModalType}
+        locale={params.locale}
+        carInfo={{
+          make: car.make,
+          model: car.model,
+          year: car.year,
+          vin: car.vin
+        }}
+      />
     </div>
   )
 }
@@ -478,7 +497,6 @@ const translations = {
     month: 'mo',
     whatsapp: 'WhatsApp',
     bookTestDrive: 'Book Test Drive',
-    callUs: 'Call Us',
     calculateEMI: 'Calculate EMI',
     estimatePayments: 'Estimate your monthly payments',
     freeInspection: 'Free inspection report',
@@ -521,7 +539,6 @@ const translations = {
     month: 'شهرياً',
     whatsapp: 'واتساب',
     bookTestDrive: 'حجز تجربة قيادة',
-    callUs: 'اتصل بنا',
     calculateEMI: 'حساب القسط',
     estimatePayments: 'قدّر أقساطك الشهرية',
     freeInspection: 'تقرير فحص مجاني',

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { FloatingWhatsApp } from '@/components/shared/FloatingWhatsApp'
 
 export const metadata: Metadata = {
   title: 'Drive Tru - Pre-owned Cars UAE',
@@ -23,6 +24,7 @@ export default function LocaleLayout({
         {children}
       </main>
       <Footer locale={params.locale} />
+      <FloatingWhatsApp locale={params.locale} />
     </div>
   )
 }

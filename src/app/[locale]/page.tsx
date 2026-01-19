@@ -21,21 +21,54 @@ export default function HomePage({
   // Get active offers
   const activeOffers = offers.filter(o => o.featured)
   
-  // Body types
+  // Body types with images from inventory
   const bodyTypes = [
-    { type: 'SUV', icon: '🚙', count: cars.filter(c => c.bodyType === 'SUV').length },
-    { type: 'Sedan', icon: '🚗', count: cars.filter(c => c.bodyType === 'Sedan').length },
-    { type: 'Hatchback', icon: '🚘', count: cars.filter(c => c.bodyType === 'Hatchback').length },
-    { type: 'Crossover', icon: '🚐', count: cars.filter(c => c.bodyType === 'Crossover').length },
+    { 
+      type: 'SUV', 
+      icon: '🚙', 
+      count: cars.filter(c => c.bodyType === 'SUV').length,
+      image: '/images/cars/suzuki/grand-vitara-1.jpg',
+      description: 'Spacious and powerful for any adventure',
+      priceRange: cars.filter(c => c.bodyType === 'SUV').length > 0 
+        ? `AED ${Math.min(...cars.filter(c => c.bodyType === 'SUV').map(c => c.price)).toLocaleString()} - ${Math.max(...cars.filter(c => c.bodyType === 'SUV').map(c => c.price)).toLocaleString()}`
+        : 'Coming soon'
+    },
+    { 
+      type: 'Sedan', 
+      icon: '🚗', 
+      count: cars.filter(c => c.bodyType === 'Sedan').length,
+      image: '/images/cars/suzuki/dzire-1.jpg',
+      description: 'Classic comfort and efficiency',
+      priceRange: cars.filter(c => c.bodyType === 'Sedan').length > 0
+        ? `AED ${Math.min(...cars.filter(c => c.bodyType === 'Sedan').map(c => c.price)).toLocaleString()} - ${Math.max(...cars.filter(c => c.bodyType === 'Sedan').map(c => c.price)).toLocaleString()}`
+        : 'Coming soon'
+    },
+    { 
+      type: 'Hatchback', 
+      icon: '🚘', 
+      count: cars.filter(c => c.bodyType === 'Hatchback').length,
+      image: '/images/cars/suzuki/swift-1.jpg',
+      description: 'Compact and practical for city life',
+      priceRange: cars.filter(c => c.bodyType === 'Hatchback').length > 0
+        ? `AED ${Math.min(...cars.filter(c => c.bodyType === 'Hatchback').map(c => c.price)).toLocaleString()} - ${Math.max(...cars.filter(c => c.bodyType === 'Hatchback').map(c => c.price)).toLocaleString()}`
+        : 'Coming soon'
+    },
+    { 
+      type: 'Crossover', 
+      icon: '🚐', 
+      count: cars.filter(c => c.bodyType === 'Crossover').length,
+      image: '/images/cars/citroen/c3-aircross-1.jpg',
+      description: 'Versatile blend of SUV and sedan',
+      priceRange: cars.filter(c => c.bodyType === 'Crossover').length > 0
+        ? `AED ${Math.min(...cars.filter(c => c.bodyType === 'Crossover').map(c => c.price)).toLocaleString()} - ${Math.max(...cars.filter(c => c.bodyType === 'Crossover').map(c => c.price)).toLocaleString()}`
+        : 'Coming soon'
+    },
   ]
   
-  // Brands
+  // Brands (Suzuki and Citroen only)
   const brands = [
     { name: 'Suzuki', logo: '/images/logos/suzuki.png' },
     { name: 'Citroen', logo: '/images/logos/citroen.png' },
-    { name: 'Toyota', logo: '/images/logos/toyota.png' },
-    { name: 'Nissan', logo: '/images/logos/nissan.png' },
-    { name: 'Honda', logo: '/images/logos/honda.png' },
   ]
   
   return (
@@ -69,8 +102,6 @@ export default function HomePage({
                 <option value="">{t.selectMake}</option>
                 <option value="Suzuki">Suzuki</option>
                 <option value="Citroen">Citroen</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Nissan">Nissan</option>
               </select>
               <select className="flex-1 px-4 py-3 border rounded-lg text-gray-700">
                 <option value="">{t.selectModel}</option>
@@ -127,16 +158,40 @@ export default function HomePage({
         <div className="container mx-auto px-4">
           <h2 className="section-title text-center">{t.browseByType}</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {bodyTypes.map(({ type, icon, count }) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {bodyTypes.map(({ type, icon, count, image, description, priceRange }) => (
               <Link 
                 key={type}
                 href={`/${params.locale}/buy/cars?bodyType=${type}`}
-                className="bg-white border rounded-xl p-6 text-center hover:shadow-lg hover:border-secondary transition-all group"
+                className="relative rounded-2xl overflow-hidden h-64 group"
               >
-                <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">{icon}</div>
-                <span className="font-semibold text-lg block">{type}</span>
-                <span className="text-sm text-muted-foreground">{count} {t.cars}</span>
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${image}')` }}
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                
+                {/* Content */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-3xl">{icon}</span>
+                    <div>
+                      <h3 className="text-2xl font-bold">{type}</h3>
+                      <p className="text-gray-300 text-sm">{description}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/20">
+                    <div>
+                      <p className="text-sm text-gray-300">{count} {t.available}</p>
+                      <p className="font-semibold">{priceRange}</p>
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-secondary transition-colors">
+                      <ChevronRight className="w-5 h-5" />
+                    </div>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -262,6 +317,7 @@ const translations = {
     browseByType: 'Browse by Body Type',
     browseByBrand: 'Browse by Brand',
     cars: 'cars',
+    available: 'available',
     whyChooseUs: 'Why Choose Drive Tru',
     usp1: 'Certified Quality',
     usp1Desc: '150+ point inspection on every vehicle',
@@ -289,6 +345,7 @@ const translations = {
     browseByType: 'تصفح حسب نوع الهيكل',
     browseByBrand: 'تصفح حسب الماركة',
     cars: 'سيارة',
+    available: 'متاح',
     whyChooseUs: 'لماذا درايف لايف',
     usp1: 'جودة معتمدة',
     usp1Desc: 'فحص 150 نقطة لكل سيارة',

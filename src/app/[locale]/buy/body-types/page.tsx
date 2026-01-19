@@ -11,34 +11,34 @@ export default function BodyTypesPage({
   const isArabic = params.locale === 'ar'
   const t = isArabic ? translations.ar : translations.en
   
-  // Body type data with icons and images
+  // Body type data with icons and images from inventory
   const bodyTypes = [
     { 
       type: 'SUV', 
       icon: '🚙', 
       description: t.suvDesc,
-      image: 'https://images.unsplash.com/photo-1551830820-330a71b99659?w=800',
+      image: '/images/cars/suzuki/grand-vitara-1.jpg',
       featured: true
     },
     { 
       type: 'Sedan', 
       icon: '🚗', 
       description: t.sedanDesc,
-      image: 'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800',
+      image: '/images/cars/suzuki/dzire-1.jpg',
       featured: true
     },
     { 
       type: 'Hatchback', 
       icon: '🚘', 
       description: t.hatchbackDesc,
-      image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800',
+      image: '/images/cars/suzuki/swift-1.jpg',
       featured: true
     },
     { 
       type: 'Crossover', 
       icon: '🚐', 
       description: t.crossoverDesc,
-      image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800',
+      image: '/images/cars/citroen/c3-aircross-1.jpg',
       featured: true
     },
   ]
