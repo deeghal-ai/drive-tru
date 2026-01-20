@@ -4,7 +4,7 @@
 import Link from 'next/link'
 import { cars } from '@/data/cars'
 import { offers } from '@/data/offers'
-import { CarCard } from '@/components/cars/CarCard'
+import { FeaturedCarsSection } from '@/components/cars/FeaturedCarsSection'
 import { Search, ChevronRight } from 'lucide-react'
 
 export default function HomePage({ 
@@ -129,29 +129,12 @@ export default function HomePage({
       </section>
 
       {/* FEATURED VEHICLES */}
-      <section className="section bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="section-title mb-0">{t.featured}</h2>
-            <Link 
-              href={`/${params.locale}/buy/cars`}
-              className="text-secondary font-medium hover:underline"
-            >
-              {t.viewAll} →
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredCars.map(car => (
-              <CarCard 
-                key={car.id} 
-                car={car} 
-                locale={params.locale}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <FeaturedCarsSection 
+        cars={featuredCars} 
+        locale={params.locale}
+        title={t.featured}
+        viewAllText={t.viewAll}
+      />
 
       {/* BROWSE BY BODY TYPE */}
       <section className="section">
