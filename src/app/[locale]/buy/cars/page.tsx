@@ -1,6 +1,7 @@
 'use client'
 
 import { Suspense, useState, useMemo, useEffect } from 'react'
+import Link from 'next/link'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { Grid, List, SlidersHorizontal, X } from 'lucide-react'
 import { cars } from '@/data/cars'
@@ -46,22 +47,22 @@ function CarsListingContent({
   
   // Update URL when filters change
   useEffect(() => {
-    const params = new URLSearchParams()
+    const urlParams = new URLSearchParams()
     
-    if (filters.make?.length) params.set('make', filters.make.join(','))
-    if (filters.bodyType?.length) params.set('bodyType', filters.bodyType.join(','))
-    if (filters.fuelType?.length) params.set('fuelType', filters.fuelType.join(','))
-    if (filters.transmission?.length) params.set('transmission', filters.transmission.join(','))
-    if (filters.priceMin) params.set('priceMin', String(filters.priceMin))
-    if (filters.priceMax) params.set('priceMax', String(filters.priceMax))
-    if (filters.yearMin) params.set('yearMin', String(filters.yearMin))
-    if (filters.yearMax) params.set('yearMax', String(filters.yearMax))
-    if (filters.certified) params.set('certified', 'true')
-    if (sortBy !== 'newest') params.set('sort', sortBy)
+    if (filters.make?.length) urlParams.set('make', filters.make.join(','))
+    if (filters.bodyType?.length) urlParams.set('bodyType', filters.bodyType.join(','))
+    if (filters.fuelType?.length) urlParams.set('fuelType', filters.fuelType.join(','))
+    if (filters.transmission?.length) urlParams.set('transmission', filters.transmission.join(','))
+    if (filters.priceMin) urlParams.set('priceMin', String(filters.priceMin))
+    if (filters.priceMax) urlParams.set('priceMax', String(filters.priceMax))
+    if (filters.yearMin) urlParams.set('yearMin', String(filters.yearMin))
+    if (filters.yearMax) urlParams.set('yearMax', String(filters.yearMax))
+    if (filters.certified) urlParams.set('certified', 'true')
+    if (sortBy !== 'newest') urlParams.set('sort', sortBy)
     
-    const queryString = params.toString()
+    const queryString = urlParams.toString()
     router.replace(`/${params.locale}/buy/cars${queryString ? `?${queryString}` : ''}`, { scroll: false })
-  }, [filters, sortBy])
+  }, [filters, sortBy, params.locale, router])
   
   // Filter and sort cars
   const filteredCars = useMemo(() => {
@@ -123,6 +124,8 @@ function CarsListingContent({
       : [...favorites, id]
     setFavorites(updated)
     storage.setFavorites(updated)
+    // Dispatch custom event to notify Header
+    window.dispatchEvent(new CustomEvent('favorites-updated'))
   }
   
   const handleCompare = (id: string) => {
@@ -131,6 +134,8 @@ function CarsListingContent({
       : comparing.length < 4 ? [...comparing, id] : comparing
     setComparing(updated)
     storage.setCompare(updated)
+    // Dispatch custom event to notify Header
+    window.dispatchEvent(new CustomEvent('compare-updated'))
   }
   
   return (
@@ -277,9 +282,9 @@ function CarsListingContent({
                 })}
               </div>
             </div>
-            <button className="btn-secondary">
+            <Link href={`/${params.locale}/tools/my-garage?tab=compare`} className="btn-secondary">
               {t.compareNow}
-            </button>
+            </Link>
           </div>
         </div>
       )}

@@ -27,8 +27,25 @@ function MyGarageContent({
   const [compareIds, setCompareIds] = useState<string[]>([])
   
   useEffect(() => {
-    setFavoriteIds(storage.getFavorites())
-    setCompareIds(storage.getCompare())
+    // Function to load data from storage
+    const loadData = () => {
+      setFavoriteIds(storage.getFavorites())
+      setCompareIds(storage.getCompare())
+    }
+    
+    // Initial load
+    loadData()
+    
+    // Listen for custom events from other pages
+    window.addEventListener('favorites-updated', loadData)
+    window.addEventListener('compare-updated', loadData)
+    window.addEventListener('storage', loadData)
+    
+    return () => {
+      window.removeEventListener('favorites-updated', loadData)
+      window.removeEventListener('compare-updated', loadData)
+      window.removeEventListener('storage', loadData)
+    }
   }, [])
   
   const favoriteCars = cars.filter(car => favoriteIds.includes(car.id))
@@ -38,22 +55,26 @@ function MyGarageContent({
     const updated = favoriteIds.filter(f => f !== id)
     setFavoriteIds(updated)
     storage.setFavorites(updated)
+    window.dispatchEvent(new CustomEvent('favorites-updated'))
   }
   
   const removeFromCompare = (id: string) => {
     const updated = compareIds.filter(c => c !== id)
     setCompareIds(updated)
     storage.setCompare(updated)
+    window.dispatchEvent(new CustomEvent('compare-updated'))
   }
   
   const clearAllFavorites = () => {
     setFavoriteIds([])
     storage.setFavorites([])
+    window.dispatchEvent(new CustomEvent('favorites-updated'))
   }
   
   const clearAllCompare = () => {
     setCompareIds([])
     storage.setCompare([])
+    window.dispatchEvent(new CustomEvent('compare-updated'))
   }
   
   // Comparison specs to show

@@ -46,12 +46,16 @@ export default function CarDetailPage({
       : [...favorites, params.id]
     storage.setFavorites(updated)
     setIsFavorite(!isFavorite)
+    // Dispatch custom event to notify Header
+    window.dispatchEvent(new CustomEvent('favorites-updated'))
   }
   
   const handleCompare = () => {
     const comparing = storage.getCompare()
     if (!comparing.includes(params.id) && comparing.length < 4) {
       storage.setCompare([...comparing, params.id])
+      // Dispatch custom event to notify Header
+      window.dispatchEvent(new CustomEvent('compare-updated'))
       alert(t.addedToCompare)
     }
   }

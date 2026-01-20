@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, Heart, GitCompare, Search, Phone, ChevronDown } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn, storage } from '@/lib/utils'
 
 interface HeaderProps {
   locale: string
@@ -12,6 +12,35 @@ interface HeaderProps {
 export function Header({ locale }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [favoritesCount, setFavoritesCount] = useState(0)
+  const [compareCount, setCompareCount] = useState(0)
+  
+  // Load counts from localStorage and listen for updates
+  useEffect(() => {
+    const updateCounts = () => {
+      setFavoritesCount(storage.getFavorites().length)
+      setCompareCount(storage.getCompare().length)
+    }
+    
+    // Initial load
+    updateCounts()
+    
+    // Listen for custom events
+    const handleFavoritesUpdate = () => updateCounts()
+    const handleCompareUpdate = () => updateCounts()
+    
+    window.addEventListener('favorites-updated', handleFavoritesUpdate)
+    window.addEventListener('compare-updated', handleCompareUpdate)
+    
+    // Also listen for storage events (for cross-tab sync)
+    window.addEventListener('storage', updateCounts)
+    
+    return () => {
+      window.removeEventListener('favorites-updated', handleFavoritesUpdate)
+      window.removeEventListener('compare-updated', handleCompareUpdate)
+      window.removeEventListener('storage', updateCounts)
+    }
+  }, [])
   
   const isArabic = locale === 'ar'
   const t = isArabic ? translations.ar : translations.en
@@ -139,15 +168,19 @@ export function Header({ locale }: HeaderProps) {
             </button>
             <Link href={`/${locale}/tools/my-garage`} className="p-2 hover:bg-white/10 rounded-lg relative">
               <Heart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-secondary rounded-full text-xs flex items-center justify-center">
-                0
-              </span>
+              {favoritesCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-secondary rounded-full text-xs flex items-center justify-center">
+                  {favoritesCount}
+                </span>
+              )}
             </Link>
             <Link href={`/${locale}/tools/my-garage?tab=compare`} className="p-2 hover:bg-white/10 rounded-lg relative">
               <GitCompare className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-secondary rounded-full text-xs flex items-center justify-center">
-                0
-              </span>
+              {compareCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-secondary rounded-full text-xs flex items-center justify-center">
+                  {compareCount}
+                </span>
+              )}
             </Link>
             
             {/* Mobile menu button */}
