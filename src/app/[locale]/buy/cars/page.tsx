@@ -29,6 +29,8 @@ function CarsListingContent({
     priceMax: searchParams.get('priceMax') ? Number(searchParams.get('priceMax')) : undefined,
     yearMin: searchParams.get('yearMin') ? Number(searchParams.get('yearMin')) : undefined,
     yearMax: searchParams.get('yearMax') ? Number(searchParams.get('yearMax')) : undefined,
+    mileageMin: searchParams.get('mileageMin') ? Number(searchParams.get('mileageMin')) : undefined,
+    mileageMax: searchParams.get('mileageMax') ? Number(searchParams.get('mileageMax')) : undefined,
     certified: searchParams.get('certified') === 'true',
   }
   
@@ -92,6 +94,12 @@ function CarsListingContent({
     }
     if (filters.yearMax) {
       result = result.filter(car => car.year <= filters.yearMax!)
+    }
+    if (filters.mileageMin) {
+      result = result.filter(car => car.mileage >= filters.mileageMin!)
+    }
+    if (filters.mileageMax) {
+      result = result.filter(car => car.mileage <= filters.mileageMax!)
     }
     if (filters.certified) {
       result = result.filter(car => car.certified)

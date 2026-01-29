@@ -187,6 +187,37 @@ export function FilterSidebar({ filters, onChange, locale }: FilterSidebarProps)
           </div>
         </FilterSection>
         
+        {/* Mileage Range */}
+        <FilterSection
+          title={t.mileage}
+          expanded={expandedSections.includes('mileage')}
+          onToggle={() => toggleSection('mileage')}
+        >
+          <div className="space-y-3">
+            <div className="flex gap-2">
+              <input
+                type="number"
+                placeholder={t.min}
+                value={filters.mileageMin || ''}
+                onChange={(e) => updateRangeFilter('mileageMin', 'mileageMax', Number(e.target.value) || undefined, filters.mileageMax)}
+                className="w-full px-3 py-2 border rounded text-sm"
+                step="5000"
+              />
+              <input
+                type="number"
+                placeholder={t.max}
+                value={filters.mileageMax || ''}
+                onChange={(e) => updateRangeFilter('mileageMin', 'mileageMax', filters.mileageMin, Number(e.target.value) || undefined)}
+                className="w-full px-3 py-2 border rounded text-sm"
+                step="5000"
+              />
+            </div>
+            <p className="text-xs text-muted-foreground">
+              {t.range}: {filterOptions.mileages.min.toLocaleString()} - {filterOptions.mileages.max.toLocaleString()} km
+            </p>
+          </div>
+        </FilterSection>
+        
         {/* Fuel Type */}
         <FilterSection
           title={t.fuelType}
@@ -280,6 +311,7 @@ const translations = {
     bodyType: 'Body Type',
     price: 'Price (AED)',
     year: 'Year',
+    mileage: 'Mileage (km)',
     fuelType: 'Fuel Type',
     transmission: 'Transmission',
     certifiedOnly: 'Certified Only',
@@ -294,6 +326,7 @@ const translations = {
     bodyType: 'نوع الهيكل',
     price: 'السعر (درهم)',
     year: 'السنة',
+    mileage: 'المسافة المقطوعة (كم)',
     fuelType: 'نوع الوقود',
     transmission: 'ناقل الحركة',
     certifiedOnly: 'معتمد فقط',
