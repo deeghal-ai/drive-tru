@@ -101,7 +101,8 @@ Update `.ai/CONTEXT.md`:
 ---
 
 ## Today's Session
-
+Campaign banners on front page - CMS functionality to be added (lets keep resizing tool in this as well)
+Lets implement this in a lite way as this is just a design prototype and we need to show that this functionality will also be added
 
 ```
 

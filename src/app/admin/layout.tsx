@@ -15,7 +15,8 @@ import {
   ChevronRight,
   LogOut,
   Menu,
-  X
+  X,
+  ImageIcon
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -36,6 +37,11 @@ const navItems = [
     href: '/admin/publishing', 
     label: 'Publishing Center', 
     icon: Globe 
+  },
+  { 
+    href: '/admin/banners', 
+    label: 'Campaign Banners', 
+    icon: ImageIcon 
   },
   { 
     href: '/admin/inventory', 

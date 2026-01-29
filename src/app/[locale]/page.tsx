@@ -4,7 +4,9 @@
 import Link from 'next/link'
 import { cars } from '@/data/cars'
 import { offers } from '@/data/offers'
+import { getActiveBanners } from '@/data/banners'
 import { FeaturedCarsSection } from '@/components/cars/FeaturedCarsSection'
+import { CampaignBannerCarousel } from '@/components/banners/CampaignBannerCarousel'
 import { Search, ChevronRight } from 'lucide-react'
 
 export default function HomePage({ 
@@ -20,6 +22,9 @@ export default function HomePage({
   
   // Get active offers
   const activeOffers = offers.filter(o => o.featured)
+  
+  // Get campaign banners
+  const campaignBanners = getActiveBanners()
   
   // Body types with images from inventory
   const bodyTypes = [
@@ -127,6 +132,14 @@ export default function HomePage({
           </Link>
         </div>
       </section>
+
+      {/* CAMPAIGN BANNERS CAROUSEL */}
+      {campaignBanners.length > 0 && (
+        <CampaignBannerCarousel 
+          banners={campaignBanners}
+          locale={params.locale}
+        />
+      )}
 
       {/* FEATURED VEHICLES */}
       <FeaturedCarsSection 
